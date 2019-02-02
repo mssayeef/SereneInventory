@@ -16,6 +16,7 @@ namespace SereneInventory.Inventory {
 
         constructor() {
             super();
+            this.maximize();
 
             q.initDetailEditor(this, this.form.TransactionDetailRows);
             q.initDetailEditor(this, this.form.TransactionExpenseRows);
@@ -52,6 +53,7 @@ namespace SereneInventory.Inventory {
             this.form.TransactionDetailRows.value.forEach(r => totalQuantity += r.Quantity);
             let totalExpense = 0;
             this.form.TransactionExpenseRows.value.forEach(r => totalExpense += r.Amount);
+            this.form.TotalExpense.value = totalExpense;
             this.form.ExpensePerPiece.value = totalExpense / totalQuantity;
 
         }

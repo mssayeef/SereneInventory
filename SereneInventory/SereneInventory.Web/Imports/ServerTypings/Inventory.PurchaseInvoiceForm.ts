@@ -3,9 +3,10 @@
         TransactionType: Serenity.EnumEditor;
         TransactionNumber: Serenity.StringEditor;
         TransactionDate: Serenity.DateEditor;
-        TenantId: Serenity.LookupEditor;
+        PartyId: Serenity.LookupEditor;
         TransactionDetailRows: TransactionDetailGridEditor;
         TransactionExpenseRows: TransactionExpenseGridEditor;
+        TotalExpense: Serenity.DecimalEditor;
         ExpensePerPiece: Serenity.DecimalEditor;
     }
 
@@ -32,9 +33,10 @@
                     'TransactionType', w0,
                     'TransactionNumber', w1,
                     'TransactionDate', w2,
-                    'TenantId', w3,
+                    'PartyId', w3,
                     'TransactionDetailRows', w4,
                     'TransactionExpenseRows', w5,
+                    'TotalExpense', w6,
                     'ExpensePerPiece', w6
                 ]);
             }

@@ -14,7 +14,9 @@ namespace SereneInventory
         Transportation = 10,
         Media = 20,
         Delivery = 30,
+        Labour = 40,
+        QC = 50,
         [Description("Misc.")]
-        Misc = 40,
+        Misc = 100,
     }
 }

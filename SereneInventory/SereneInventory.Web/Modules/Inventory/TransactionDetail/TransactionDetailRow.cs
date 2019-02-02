@@ -28,7 +28,7 @@
         public Int64? TransactionId { get { return Fields.TransactionId[this]; } set { Fields.TransactionId[this] = value; } }
         public partial class RowFields { public Int64Field TransactionId; }
 
-        [DisplayName("Ref. Transaction Detail"), ForeignKey("[dbo].[TransactionDetail]", "Id"), LeftJoin("jRefTransactionDetail")]
+        [DisplayName("Ref. Tr. Detail"), ForeignKey("[dbo].[TransactionDetail]", "Id"), LeftJoin("jRefTransactionDetail")]
         [LookupEditor(typeof(PurchaseInvoiceDetailLookup)/*, CascadeFrom = nameof(RefTransactionDetailTransactionId), CascadeField = nameof(TransactionDetailRow.TransactionId)*/)]
         public Int64? RefTransactionDetailId { get { return Fields.RefTransactionDetailId[this]; } set { Fields.RefTransactionDetailId[this] = value; } }
         public partial class RowFields { public Int64Field RefTransactionDetailId; }
@@ -38,15 +38,15 @@
         public Int64? ProductId { get { return Fields.ProductId[this]; } set { Fields.ProductId[this] = value; } }
         public partial class RowFields { public Int64Field ProductId; }
 
-        [DisplayName("Quantity"), NotNull, Width(200, Min = 200)]
+        [DisplayName("Quantity"), NotNull]
         public Decimal? Quantity { get { return Fields.Quantity[this]; } set { Fields.Quantity[this] = value; } }
         public partial class RowFields { public DecimalField Quantity; }
 
-        [DisplayName("Unit Price"), Size(19), Scale(2), NotNull, Width(200, Min = 200)]
+        [DisplayName("Unit Price"), Size(19), Scale(2), NotNull]
         public Decimal? UnitPrice { get { return Fields.UnitPrice[this]; } set { Fields.UnitPrice[this] = value; } }
         public partial class RowFields { public DecimalField UnitPrice; }
 
-        [DisplayName("Amount"), Size(19), Scale(2), NotNull, ReadOnly(true), Width(200, Min = 200)]
+        [DisplayName("Amount"), Size(19), Scale(2), NotNull, ReadOnly(true)]
         public Decimal? Amount { get { return Fields.Amount[this]; } set { Fields.Amount[this] = value; } }
         public partial class RowFields { public DecimalField Amount; }
 
@@ -87,7 +87,7 @@
         public Int64? RefTransactionRefTransactionId { get { return Fields.RefTransactionRefTransactionId[this]; } set { Fields.RefTransactionRefTransactionId[this] = value; } }
         public partial class RowFields { public Int64Field RefTransactionRefTransactionId; }
 
-        [DisplayName("Ref. Transaction Number"), Expression("jRefTransaction.[TransactionNumber]"), MinSelectLevel(SelectLevel.List)]
+        [DisplayName("Ref. No."), Expression("jRefTransaction.[TransactionNumber]"), MinSelectLevel(SelectLevel.List)]
         public String RefTransactionTransactionNumber { get { return Fields.RefTransactionTransactionNumber[this]; } set { Fields.RefTransactionTransactionNumber[this] = value; } }
         public partial class RowFields { public StringField RefTransactionTransactionNumber; }
 

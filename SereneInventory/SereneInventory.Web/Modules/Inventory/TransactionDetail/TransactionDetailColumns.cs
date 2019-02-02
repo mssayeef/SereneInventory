@@ -15,11 +15,12 @@ namespace SereneInventory.Inventory.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), Hidden]
         public Int64 Id { get; set; }
+        [Width(80)]
         public String RefTransactionTransactionNumber { get; set; }
-        [Width(200, Min = 150)]
-        public Int64 ProductId { get; set; }
+        public String ProductName { get; set; }
         public Decimal Quantity { get; set; }
         public Decimal UnitPrice { get; set; }
+        [Width(150, Min = 150)]
         public Decimal Amount { get; set; }
         public Decimal? RemainingQuantity { get; set; }
     }

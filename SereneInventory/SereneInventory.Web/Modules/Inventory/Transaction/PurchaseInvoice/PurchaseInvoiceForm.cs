@@ -23,7 +23,7 @@ namespace SereneInventory.Inventory.Forms
         [HalfWidth]
         public DateTime TransactionDate { get; set; }
         [LookupEditor(typeof(SuppliesLookup), InplaceAdd = true)]
-        public Int64 TenantId { get; set; }
+        public Int64 PartyId { get; set; }
 
         [Category("Transaction Details")]
         public List<TransactionDetailRow> TransactionDetailRows { get; set; }
@@ -33,6 +33,8 @@ namespace SereneInventory.Inventory.Forms
         public List<TransactionExpenseRow> TransactionExpenseRows { get; set; }
         [DisplayName("Expense per Piece"), HalfWidth, OneWay, NotMapped, ReadOnly(true)]
         public decimal ExpensePerPiece { get; set; }
+        [DisplayName("Total Expense"), HalfWidth, OneWay, NotMapped, ReadOnly(true)]
+        public decimal TotalExpense { get; set; }
 
 
         //[Category("Related Transactions")]

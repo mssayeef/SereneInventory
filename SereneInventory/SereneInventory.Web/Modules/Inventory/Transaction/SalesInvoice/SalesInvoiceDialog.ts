@@ -16,6 +16,7 @@ namespace SereneInventory.Inventory {
 
         constructor() {
             super();
+            this.maximize()
 
             q.initDetailEditor(this, this.form.TransactionDetailRows);
         }

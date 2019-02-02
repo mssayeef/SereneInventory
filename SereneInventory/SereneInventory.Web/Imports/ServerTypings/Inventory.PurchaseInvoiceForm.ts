@@ -6,8 +6,11 @@
         PartyId: Serenity.LookupEditor;
         TransactionDetailRows: TransactionDetailGridEditor;
         TransactionExpenseRows: TransactionExpenseGridEditor;
-        TotalExpense: Serenity.DecimalEditor;
         ExpensePerPiece: Serenity.DecimalEditor;
+        TotalExpense: Serenity.DecimalEditor;
+        TotalAmount: Serenity.DecimalEditor;
+        TotalRefferencedAmount: Serenity.DecimalEditor;
+        Profit: Serenity.DecimalEditor;
     }
 
     export class PurchaseInvoiceForm extends Serenity.PrefixedContext {
@@ -36,8 +39,11 @@
                     'PartyId', w3,
                     'TransactionDetailRows', w4,
                     'TransactionExpenseRows', w5,
+                    'ExpensePerPiece', w6,
                     'TotalExpense', w6,
-                    'ExpensePerPiece', w6
+                    'TotalAmount', w6,
+                    'TotalRefferencedAmount', w6,
+                    'Profit', w6
                 ]);
             }
         }

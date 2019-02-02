@@ -1038,6 +1038,8 @@
     <TypeScriptCompile Include="Modules\Inventory\Transaction\SalesInvoice\SalesInvoiceGrid.ts" />
     <TypeScriptCompile Include="Modules\Inventory\Transaction\TransactionDialog.ts" />
     <TypeScriptCompile Include="Modules\Inventory\Transaction\TransactionGrid.ts" />
+    <TypeScriptCompile Include="Modules\Setup\Party\CustomerDialog.ts" />
+    <TypeScriptCompile Include="Modules\Setup\Party\SuplierDialog.ts" />
     <TypeScriptCompile Include="Modules\_ExtWrapper\_q.ts" />
     <TypeScriptCompile Include="Modules\_Ext\AuditLogViewer\AuditLogViewer.ts" />
     <TypeScriptCompile Include="Modules\_Ext\AuditLogViewer\AuditLogViewerDialog.ts" />

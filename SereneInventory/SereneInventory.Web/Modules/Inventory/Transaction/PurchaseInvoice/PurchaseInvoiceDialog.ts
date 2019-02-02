@@ -50,11 +50,20 @@ namespace SereneInventory.Inventory {
 
         private calculateAmount() {
             let totalQuantity = 0;
-            this.form.TransactionDetailRows.value.forEach(r => totalQuantity += r.Quantity);
+            let totalAmount = 0;
+            this.form.TransactionDetailRows.value.forEach(r => {
+                totalQuantity += r.Quantity;
+                totalAmount += r.Amount;
+            });
+
             let totalExpense = 0;
             this.form.TransactionExpenseRows.value.forEach(r => totalExpense += r.Amount);
             this.form.TotalExpense.value = totalExpense;
             this.form.ExpensePerPiece.value = totalExpense / totalQuantity;
+
+            this.form.TotalAmount.value = totalAmount
+            this.form.Profit.value = this.form.TotalRefferencedAmount.value - totalAmount ;
+
 
         }
 

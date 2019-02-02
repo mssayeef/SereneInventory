@@ -15,6 +15,28 @@
         constructor(container: JQuery) {
             super(container);
         }
+                protected createSlickGrid() {
+            var grid = super.createSlickGrid();
+
+
+            this.view.setSummaryOptions({
+                aggregators: [
+                    new Slick.Aggregators.Sum(fld.TotalQuantity),
+                    new Slick.Aggregators.Sum(fld.TotalAmount),
+                ]
+            });
+
+
+            return grid;
+        }
+
+        protected getSlickOptions() {
+            let opt = super.getSlickOptions();
+
+            opt.showFooterRow = true;
+
+            return opt;
+        }
 
         protected getQuickFilters() {
             var filters = super.getQuickFilters();

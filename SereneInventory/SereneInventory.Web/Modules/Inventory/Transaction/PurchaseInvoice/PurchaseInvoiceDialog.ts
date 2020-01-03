@@ -62,7 +62,7 @@ namespace SereneInventory.Inventory {
             this.form.ExpensePerPiece.value = totalExpense / totalQuantity;
 
             this.form.TotalAmount.value = totalAmount
-            this.form.Profit.value = this.form.TotalRefferencedAmount.value - totalAmount ;
+            //this.form.Profit.value = this.form.TotalRefferencedAmount.value - totalAmount ;
 
 
         }

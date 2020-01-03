@@ -24,6 +24,7 @@ namespace SereneInventory.Inventory.Forms
         public DateTime TransactionDate { get; set; }
         [LookupEditor(typeof(SuppliesLookup), InplaceAdd = true, DialogType = "Setup.SupplierDialog")]
         public Int64 PartyId { get; set; }
+        public Int64 TenantId { get; set; }
 
         [Category("Transaction Details")]
         public List<TransactionDetailRow> TransactionDetailRows { get; set; }
@@ -31,10 +32,10 @@ namespace SereneInventory.Inventory.Forms
 
         [DisplayName("Total Purchase"), HalfWidth, OneWay, NotMapped, ReadOnly(true)]
         public Decimal TotalAmount { get; set; }
-        [DisplayName("Total Sales"), HalfWidth, ReadOnly(true)]
-        public Decimal TotalRefferencedAmount { get; set; }
-        [DisplayName("Profit"), HalfWidth, OneWay, NotMapped, ReadOnly(true), DecimalEditor(MinValue = "-999999.99", MaxValue = "999999.99")]
-        public Decimal Profit { get; set; }
+        //[DisplayName("Total Sales"), HalfWidth, ReadOnly(true)]
+        //public Decimal TotalRefferencedAmount { get; set; }
+        //[DisplayName("Profit"), HalfWidth, OneWay, NotMapped, ReadOnly(true), DecimalEditor(MinValue = "-999999.99", MaxValue = "999999.99")]
+        //public Decimal Profit { get; set; }
 
         [Category("Expenses")]
         [HalfWidth]

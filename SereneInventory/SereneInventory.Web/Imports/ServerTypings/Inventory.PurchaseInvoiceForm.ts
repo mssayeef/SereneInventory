@@ -3,13 +3,11 @@
         TransactionType: Serenity.EnumEditor;
         TransactionNumber: Serenity.StringEditor;
         TransactionDate: Serenity.DateEditor;
-        PartyId: Serenity.LookupEditor;
-        TenantId: Serenity.StringEditor;
+        TenantId: Serenity.LookupEditor;
         TransactionDetailRows: TransactionDetailGridEditor;
-        TotalAmount: Serenity.DecimalEditor;
         TransactionExpenseRows: TransactionExpenseGridEditor;
         ExpensePerPiece: Serenity.DecimalEditor;
-        TotalExpense: Serenity.DecimalEditor;
+        TotalRefferencedAmount: Serenity.DecimalEditor;
     }
 
     export class PurchaseInvoiceForm extends Serenity.PrefixedContext {
@@ -28,20 +26,18 @@
                 var w2 = s.DateEditor;
                 var w3 = s.LookupEditor;
                 var w4 = TransactionDetailGridEditor;
-                var w5 = s.DecimalEditor;
-                var w6 = TransactionExpenseGridEditor;
+                var w5 = TransactionExpenseGridEditor;
+                var w6 = s.DecimalEditor;
 
                 Q.initFormType(PurchaseInvoiceForm, [
                     'TransactionType', w0,
                     'TransactionNumber', w1,
                     'TransactionDate', w2,
-                    'PartyId', w3,
-                    'TenantId', w1,
+                    'TenantId', w3,
                     'TransactionDetailRows', w4,
-                    'TotalAmount', w5,
-                    'TransactionExpenseRows', w6,
-                    'ExpensePerPiece', w5,
-                    'TotalExpense', w5
+                    'TransactionExpenseRows', w5,
+                    'ExpensePerPiece', w6,
+                    'TotalRefferencedAmount', w6
                 ]);
             }
         }

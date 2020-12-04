@@ -24,7 +24,6 @@
                 aggregators: [
                     new Slick.Aggregators.Sum(fld.TotalQuantity),
                     new Slick.Aggregators.Sum(fld.TotalAmount),
-                    new Slick.Aggregators.Sum(fld.RemainingQuantity),
                 ]
             });
 

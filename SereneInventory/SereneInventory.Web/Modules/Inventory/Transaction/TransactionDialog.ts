@@ -10,9 +10,9 @@ namespace SereneInventory.Inventory {
         protected getLocalTextPrefix() { return TransactionRow.localTextPrefix; }
         protected getNameProperty() { return TransactionRow.nameProperty; }
         protected getService() { return TransactionService.baseUrl; }
-
+ 
         protected getEntityTitle() { return getTrasactionTypeName(getTrasactionTypeFromUrl()) }
-
+         
         protected form = new TransactionForm(this.idPrefix);
 
         constructor() {

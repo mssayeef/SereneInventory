@@ -204,9 +204,9 @@ namespace SereneInventory
         public static class Company
         {
             public static LocalText Name = "BERC";
-            public static LocalText Title = "Turki Winning Tex";
+            public static LocalText Title = "Trivuz International";
             public static LocalText Address = "House # 9, Road # 09, Sector # 09, Uttara, Dhaka, Bangladesh";
-            public static LocalText Contact = "+88-01923-763784, +88-01762-691101";
+            public static LocalText Contact = "+88-01923-763784, +88-01762-691101, +88-01993007372";
         }
 
         public static class Application

@@ -100,17 +100,17 @@
     public class ItemModel
     {
         public string ItemName { get; set; }
-        public int PurchaseQuantity { get; set; }
-        public int SalesQuantity { get; set; }
-        public int RemainigQuantity => PurchaseQuantity - SalesQuantity;
-        public double PurchaseAmount { get; set; }
-        public double SalesAmount { get; set; }
-        public double BalanceAmount => PurchaseAmount - SalesAmount;
+        public decimal PurchaseQuantity { get; set; }
+        public decimal SalesQuantity { get; set; }
+        public decimal RemainigQuantity => PurchaseQuantity - SalesQuantity;
+        public decimal PurchaseAmount { get; set; }
+        public decimal SalesAmount { get; set; }
+        public decimal BalanceAmount => PurchaseAmount - SalesAmount;
 
-        public double AveragePurchasePrice { get; set; }
-        public double AverageSalesPrice { get; set; }
-        public double AverageProfit => AverageSalesPrice == 0 ? 0 : AverageSalesPrice - AveragePurchasePrice;
-        public double TotalProfit => AverageProfit * SalesQuantity;
+        public decimal AveragePurchasePrice { get; set; }
+        public decimal AverageSalesPrice { get; set; }
+        public decimal AverageProfit => AverageSalesPrice == 0 ? 0 : AverageSalesPrice - AveragePurchasePrice;
+        public decimal TotalProfit => AverageProfit * SalesQuantity;
     }
 
 }

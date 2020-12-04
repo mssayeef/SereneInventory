@@ -195,6 +195,7 @@
     <Content Include="Content\images\collapse.gif" />
     <Content Include="Content\images\down.gif" />
     <Content Include="Content\images\expand.gif" />
+    <Content Include="Content\images\Fraud-Triangle-1280x720.png" />
     <Content Include="Content\images\header-columns-bg.gif" />
     <Content Include="Content\images\header-columns-over-bg.gif" />
     <Content Include="Content\images\sort-asc.gif" />

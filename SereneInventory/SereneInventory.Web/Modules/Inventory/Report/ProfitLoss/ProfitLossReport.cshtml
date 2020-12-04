@@ -46,32 +46,32 @@
                 <tr>
                     <td class="rpt-id">@i@{i++;} </td>
                     <td>@row.ItemName</td>
-                    <td class="rpt-number">@row.PurchaseQuantity</td>
-                    <td class="rpt-number">@row.AveragePurchasePrice</td>
-                    <td class="rpt-number">@row.PurchaseAmount</td>
-                    <td class="rpt-number">@row.SalesQuantity</td>
-                    <td class="rpt-number">@row.AverageSalesPrice</td>
-                    <td class="rpt-number">@row.SalesAmount</td>
-                    <td class="rpt-number">@row.RemainigQuantity</td>
-                    <td class="rpt-number">@row.BalanceAmount</td>
-                    <td class="rpt-number">@row.AverageProfit</td>
-                    <td class="rpt-number">@row.TotalProfit</td>
+                    <td class="rpt-number">@row.PurchaseQuantity.ToRound()</td>
+                    <td class="rpt-number">@row.AveragePurchasePrice.ToRound()</td>
+                    <td class="rpt-number">@row.PurchaseAmount.ToRound()</td>
+                    <td class="rpt-number">@row.SalesQuantity.ToRound()</td>
+                    <td class="rpt-number">@row.AverageSalesPrice.ToRound()</td>
+                    <td class="rpt-number">@row.SalesAmount.ToRound()</td>
+                    <td class="rpt-number">@row.RemainigQuantity.ToRound()</td>
+                    <td class="rpt-number">@row.BalanceAmount.ToRound()</td>
+                    <td class="rpt-number">@row.AverageProfit.ToRound()</td>
+                    <td class="rpt-number">@row.TotalProfit.ToRound()</td>
                 </tr>
                 }
             </tbody>
             <tfoot>
                 <tr>
                     <th colspan="2" class="rpt-number">Total </th>
-                    <th class="rpt-number">@Model.Items.Sum(row => row.PurchaseQuantity)</th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.PurchaseQuantity).ToRound()</th>
                     <th class="rpt-number"></th>
-                    <th class="rpt-number">@Model.Items.Sum(row => row.PurchaseAmount)</th>
-                    <th class="rpt-number">@Model.Items.Sum(row => row.SalesQuantity)</th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.PurchaseAmount).ToRound()</th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.SalesQuantity).ToRound()</th>
                     <th class="rpt-number"></th>
-                    <th class="rpt-number">@Model.Items.Sum(row => row.SalesAmount)</th>
-                    <th class="rpt-number">@Model.Items.Sum(row => row.RemainigQuantity)</th>
-                    <th class="rpt-number">@Model.Items.Sum(row => row.BalanceAmount)</th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.SalesAmount).ToRound()</th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.RemainigQuantity).ToRound()</th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.BalanceAmount).ToRound()</th>
                     <th class="rpt-number"></th>
-                    <th class="rpt-number">@Model.Items.Sum(row => row.TotalProfit)</th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.TotalProfit).ToRound()</th>
                 </tr>
 
             </tfoot>

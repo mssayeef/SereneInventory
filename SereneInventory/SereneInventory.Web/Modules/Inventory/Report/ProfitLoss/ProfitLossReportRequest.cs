@@ -2,6 +2,7 @@
 namespace SereneInventory.Inventory
 {
     using _Ext;
+    using SereneInventory.Inventory.Entities;
     using SereneInventory.Setup.Entities;
     using Serenity.ComponentModel;
     using Serenity.Services;
@@ -19,7 +20,7 @@ namespace SereneInventory.Inventory
         [DisplayName("Purchase Invoice Number")]
         public String PurchaseInvoiceNumber { get; set; }
         [DisplayName("Purchased from Party")]
-        [LookupEditor(typeof(PartyRow))]
+        [LookupEditor(typeof(SuppliesLookup))]
         public Int64 PurchasedFromPartyId { get; set; }
     }
 

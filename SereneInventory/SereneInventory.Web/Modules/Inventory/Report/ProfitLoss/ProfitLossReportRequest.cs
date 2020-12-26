@@ -2,6 +2,7 @@
 namespace SereneInventory.Inventory
 {
     using _Ext;
+    using SereneInventory.Setup.Entities;
     using Serenity.ComponentModel;
     using Serenity.Services;
     using System;
@@ -11,15 +12,24 @@ namespace SereneInventory.Inventory
     public class ProfitLossReportRequestForm
     {
         [HalfWidth(UntilNext = true)]
-        [DisplayName("Date From"), Required]
+        [DisplayName("Sales Date From"), Required]
         public DateTime DateFrom { get; set; }
-        [DisplayName("Date To"), Required]
+        [DisplayName("Sales Date To"), Required]
         public DateTime DateTo { get; set; }
+        [DisplayName("Purchase Invoice Number")]
+        public String PurchaseInvoiceNumber { get; set; }
+        [DisplayName("Purchased from Party")]
+        [LookupEditor(typeof(PartyRow))]
+        public Int64 PurchasedFromPartyId { get; set; }
     }
 
     public class ProfitLossReportRequest : ServiceRequest
     {
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
+        public String PurchaseInvoiceNumber { get; set; }
+        public Int64? PurchasedFromPartyId { get; set; }
+        public String PurchasedFromPartyName { get; set; }
+
     }
 }

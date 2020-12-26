@@ -12,6 +12,20 @@
         <label>Date</label>
         <span>: @r.DateFrom.ToDateFormat() &mdash; @r.DateTo.ToDateFormat()</span>
     </div>
+    @if (r.PurchasedFromPartyId > 0)
+    {
+        <div class="col-md-6" style="font-size:14px;">
+            <label>Purchased from Party</label>
+            <span>: @r.PurchasedFromPartyName</span>
+        </div>
+    }
+    @if (!string.IsNullOrWhiteSpace(r.PurchaseInvoiceNumber))
+    {
+        <div class="col-md-6" style="font-size:14px;">
+            <label>Purchase Invoice Number</label>
+            <span>: @r.PurchaseInvoiceNumber</span>
+        </div>
+    }
 </div>
 
 <div class="row">
@@ -43,20 +57,20 @@
                 @{i = 1;}
                 @foreach (var row in Model.Items)
                 {
-                <tr>
-                    <td class="rpt-id">@i@{i++;} </td>
-                    <td>@row.ItemName</td>
-                    <td class="rpt-number">@row.PurchaseQuantity.ToRound()</td>
-                    <td class="rpt-number">@row.AveragePurchasePrice.ToRound()</td>
-                    <td class="rpt-number">@row.PurchaseAmount.ToRound()</td>
-                    <td class="rpt-number">@row.SalesQuantity.ToRound()</td>
-                    <td class="rpt-number">@row.AverageSalesPrice.ToRound()</td>
-                    <td class="rpt-number">@row.SalesAmount.ToRound()</td>
-                    <td class="rpt-number">@row.RemainigQuantity.ToRound()</td>
-                    <td class="rpt-number">@row.BalanceAmount.ToRound()</td>
-                    <td class="rpt-number">@row.AverageProfit.ToRound()</td>
-                    <td class="rpt-number">@row.TotalProfit.ToRound()</td>
-                </tr>
+                    <tr>
+                        <td class="rpt-id">@i@{i++;} </td>
+                        <td>@row.ItemName</td>
+                        <td class="rpt-number">@row.PurchaseQuantity.ToRound()</td>
+                        <td class="rpt-number">@row.AveragePurchasePrice.ToRound()</td>
+                        <td class="rpt-number">@row.PurchaseAmount.ToRound()</td>
+                        <td class="rpt-number">@row.SalesQuantity.ToRound()</td>
+                        <td class="rpt-number">@row.AverageSalesPrice.ToRound()</td>
+                        <td class="rpt-number">@row.SalesAmount.ToRound()</td>
+                        <td class="rpt-number">@row.RemainigQuantity.ToRound()</td>
+                        <td class="rpt-number">@row.BalanceAmount.ToRound()</td>
+                        <td class="rpt-number">@row.AverageProfit.ToRound()</td>
+                        <td class="rpt-number">@row.TotalProfit.ToRound()</td>
+                    </tr>
                 }
             </tbody>
             <tfoot>

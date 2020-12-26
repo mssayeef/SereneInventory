@@ -46,9 +46,18 @@
                 .Select(Sql.Sum(tdfld.Amount.Expression), nameof(ItemModel.PurchaseAmount))
                 .Where(tdfld.TransactionTransactionType == (int)TransactionType.PurchaseInvoice)
                 //.Where(tdfld.TransactionTransactionDate >= request.DateFrom)
-                //.Where(tdfld.TransactionTransactionDate <= request.DateTo)
+                .Where(tdfld.TransactionTransactionDate <= request.DateTo)
                 .GroupBy(tdfld.ProductName)
                 ;
+
+            if (!string.IsNullOrWhiteSpace(Request.PurchaseInvoiceNumber))
+            {
+                purcahseQuery.Where(tdfld.TransactionTransactionNumber == Request.PurchaseInvoiceNumber);
+            }
+            if (Request.PurchasedFromPartyId > 0)
+            {
+                purcahseQuery.Where(tdfld.TransactionPartyId == Request.PurchasedFromPartyId.Value);
+            }
 
             var purchaseItems = connection.Query<ItemModel>(purcahseQuery);
 

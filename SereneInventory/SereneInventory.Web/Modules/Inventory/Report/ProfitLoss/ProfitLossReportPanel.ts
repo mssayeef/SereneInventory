@@ -12,5 +12,12 @@
             super(container);
 
         }
+
+        protected getSaveEntity() {
+            let entity = super.getSaveEntity();
+            entity.PurchasedFromPartyName = this.form.PurchasedFromPartyId.text;
+            return entity;
+        }
+
     }
 }

@@ -45,8 +45,8 @@
                 .Select(Sql.Avg(tdfld.UnitPrice.Expression), nameof(ItemModel.AveragePurchasePrice))
                 .Select(Sql.Sum(tdfld.Amount.Expression), nameof(ItemModel.PurchaseAmount))
                 .Where(tdfld.TransactionTransactionType == (int)TransactionType.PurchaseInvoice)
-                .Where(tdfld.TransactionTransactionDate >= request.DateFrom)
-                .Where(tdfld.TransactionTransactionDate <= request.DateTo)
+                //.Where(tdfld.TransactionTransactionDate >= request.DateFrom)
+                //.Where(tdfld.TransactionTransactionDate <= request.DateTo)
                 .GroupBy(tdfld.ProductName)
                 ;
 
@@ -92,7 +92,7 @@
                 }
             }
 
-            Items = Items.FindAll(f=>f.PurchaseQuantity > 0);
+            Items = Items.FindAll(f => f.PurchaseQuantity > 0 || f.SalesQuantity > 0);
         }
 
     }

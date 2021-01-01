@@ -3,6 +3,7 @@ using Serenity.Services;
 
 namespace SereneInventory.Inventory.Repositories
 {
+    using SereneInventory.Setup.Entities;
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
@@ -39,10 +40,30 @@ namespace SereneInventory.Inventory.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> { }
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
+            protected override void ValidateFieldValues()
+            {
+                base.ValidateFieldValues();
+
+                Row.TransactionDetailRows.ForEach(d =>
+                {
+                    var pfld = ProductRow.Fields;
+                    var product = Connection.ById<ProductRow>(d.ProductId, q => q
+                                            .Select(pfld.Name)
+                                            .Select(pfld.RemainingQuantity));
+
+                    if (product.RemainingQuantity == null)
+                        throw new ValidationError("No stock for the product: " + product.Name);
+                    if (product.RemainingQuantity < d.Quantity)
+                        throw new ValidationError("Stock is less than sales quantity for the product: " + product.Name);
+                });
+            }
+        }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
-        private class MyListHandler : ListRequestHandler<MyRow, TransactionListRequest> {
+        private class MyListHandler : ListRequestHandler<MyRow, TransactionListRequest>
+        {
             protected override void ApplyFilters(SqlQuery query)
             {
                 base.ApplyFilters(query);

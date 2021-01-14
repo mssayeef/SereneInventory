@@ -114,7 +114,7 @@
         public decimal RemainigQuantity => PurchaseQuantity - SalesQuantity;
         public decimal PurchaseAmount { get; set; }
         public decimal SalesAmount { get; set; }
-        public decimal BalanceAmount => PurchaseAmount - SalesAmount;
+        public decimal BalanceAmount => RemainigQuantity * AveragePurchasePrice;
 
         public decimal AveragePurchasePrice { get; set; }
         public decimal AverageSalesPrice { get; set; }

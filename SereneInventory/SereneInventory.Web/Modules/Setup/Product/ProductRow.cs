@@ -72,11 +72,11 @@ AND d.ProductId = T0.Id)";
         public Decimal? QuantityIn { get { return Fields.QuantityIn[this]; } set { Fields.QuantityIn[this] = value; } }
         public partial class RowFields { public DecimalField QuantityIn; }
 
-        const string QuantityOutExp = @"(SELECT SUM(d.Quantity) 
+        const string QuantityOutExp = @"ISNULL((SELECT SUM(d.Quantity) 
 FROM TransactionDetail d 
 JOIN [Transaction] t ON t.Id = d.TransactionId 
 WHERE t.TransactionType = 20
-AND d.ProductId = T0.Id)";
+AND d.ProductId = T0.Id), 0)";
 
         [DisplayName("Quantity (Out)"), Expression(QuantityOutExp)]
         [MinSelectLevel(SelectLevel.List)]

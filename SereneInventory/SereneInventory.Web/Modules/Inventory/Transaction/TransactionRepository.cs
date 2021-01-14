@@ -55,7 +55,7 @@ namespace SereneInventory.Inventory.Repositories
                                                 .Select(pfld.Name)
                                                 .Select(pfld.RemainingQuantity));
 
-                        if (product.RemainingQuantity == null)
+                        if (product.RemainingQuantity == null || product.RemainingQuantity == 0)
                             throw new ValidationError("No stock for the product: " + product.Name);
                         if (product.RemainingQuantity < d.Quantity)
                             throw new ValidationError("Stock is less than sales quantity for the product: " + product.Name);

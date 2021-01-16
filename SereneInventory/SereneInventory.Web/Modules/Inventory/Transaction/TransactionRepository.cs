@@ -42,11 +42,11 @@ namespace SereneInventory.Inventory.Repositories
 
         private class MySaveHandler : SaveRequestHandler<MyRow>
         {
-            protected override void ValidateFieldValues()
+            protected override void AfterSave()
             {
-                base.ValidateFieldValues();
+                base.AfterSave();
 
-                if (Row.TransactionType == TransactionType.SalesInvoice)
+                if (IsCreate && Row.TransactionType == TransactionType.SalesInvoice)
                 {
                     Row.TransactionDetailRows.ForEach(d =>
                     {
@@ -61,6 +61,7 @@ namespace SereneInventory.Inventory.Repositories
                             throw new ValidationError("Stock is less than sales quantity for the product: " + product.Name);
                     });
                 }
+
             }
         }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }

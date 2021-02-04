@@ -116,8 +116,8 @@
         public decimal SalesAmount { get; set; }
         public decimal BalanceAmount => RemainigQuantity * AveragePurchasePrice;
 
-        public decimal AveragePurchasePrice => PurchaseAmount / PurchaseQuantity;
-        public decimal AverageSalesPrice => SalesAmount / SalesQuantity;
+        public decimal AveragePurchasePrice => PurchaseQuantity > 0 ? PurchaseAmount / PurchaseQuantity : 0;
+        public decimal AverageSalesPrice => SalesQuantity > 0 ? SalesAmount / SalesQuantity : 0;
         public decimal AverageProfit => AverageSalesPrice == 0 ? 0 : AverageSalesPrice - AveragePurchasePrice;
         public decimal TotalProfit => AverageProfit * SalesQuantity;
     }

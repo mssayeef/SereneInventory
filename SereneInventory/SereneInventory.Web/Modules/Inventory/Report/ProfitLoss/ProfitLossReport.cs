@@ -42,7 +42,7 @@
             var purcahseQuery = new SqlQuery().From(tdfld)
                 .Select(tdfld.ProductName, nameof(ItemModel.ItemName))
                 .Select(Sql.Sum(tdfld.Quantity.Expression), nameof(ItemModel.PurchaseQuantity))
-                .Select(Sql.Avg(tdfld.UnitPrice.Expression), nameof(ItemModel.AveragePurchasePrice))
+                //.Select(Sql.Avg(tdfld.UnitPrice.Expression), nameof(ItemModel.AveragePurchasePrice))
                 .Select(Sql.Sum(tdfld.Amount.Expression), nameof(ItemModel.PurchaseAmount))
                 .Where(tdfld.TransactionTransactionType == (int)TransactionType.PurchaseInvoice)
                 //.Where(tdfld.TransactionTransactionDate >= request.DateFrom)
@@ -64,7 +64,7 @@
             var salesQuery = new SqlQuery().From(tdfld)
                 .Select(tdfld.ProductName, nameof(ItemModel.ItemName))
                 .Select(Sql.Sum(tdfld.Quantity.Expression), nameof(ItemModel.SalesQuantity))
-                .Select(Sql.Avg(tdfld.UnitPrice.Expression), nameof(ItemModel.AverageSalesPrice))
+                //.Select(Sql.Avg(tdfld.UnitPrice.Expression), nameof(ItemModel.AverageSalesPrice))
                 .Select(Sql.Sum(tdfld.Amount.Expression), nameof(ItemModel.SalesAmount))
                 .Where(tdfld.TransactionTransactionType == (int)TransactionType.SalesInvoice)
                 .Where(tdfld.TransactionTransactionDate >= request.DateFrom)
@@ -87,7 +87,7 @@
                 if (purchaseItem?.Count() > 0)
                 {
                     item.PurchaseQuantity = purchaseItem.Sum(s => s.PurchaseQuantity);
-                    item.AveragePurchasePrice = purchaseItem.Average(s => s.AveragePurchasePrice);
+                    //item.AveragePurchasePrice = purchaseItem.Average(s => s.AveragePurchasePrice);
                     item.PurchaseAmount = purchaseItem.Average(s => s.PurchaseAmount);
                 }
 
@@ -96,7 +96,7 @@
                 if (salesItem?.Count() > 0)
                 {
                     item.SalesQuantity = salesItem.Sum(s => s.SalesQuantity);
-                    item.AverageSalesPrice = salesItem.Average(s => s.AverageSalesPrice);
+                    //item.AverageSalesPrice = salesItem.Average(s => s.AverageSalesPrice);
                     item.SalesAmount = salesItem.Average(s => s.SalesAmount);
                 }
             }
@@ -116,8 +116,8 @@
         public decimal SalesAmount { get; set; }
         public decimal BalanceAmount => RemainigQuantity * AveragePurchasePrice;
 
-        public decimal AveragePurchasePrice { get; set; }
-        public decimal AverageSalesPrice { get; set; }
+        public decimal AveragePurchasePrice => PurchaseAmount / PurchaseQuantity;
+        public decimal AverageSalesPrice => SalesAmount / SalesQuantity;
         public decimal AverageProfit => AverageSalesPrice == 0 ? 0 : AverageSalesPrice - AveragePurchasePrice;
         public decimal TotalProfit => AverageProfit * SalesQuantity;
     }

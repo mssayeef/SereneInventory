@@ -35,13 +35,17 @@
                 <tr>
                     <th rowspan="2">#</th>
                     <th rowspan="2" style="font-size:14px;">Item Name</th>
+                    <th colspan="3" style="font-size:14px;">Opening Balance</th>
                     <th colspan="3" style="font-size:14px;">Purchase</th>
                     <th colspan="3" style="font-size:14px;">Sales</th>
                     <th colspan="2" style="font-size:14px;">Balance</th>
                     <th colspan="2" style="font-size:14px;">Profit</th>
                 </tr>
                 <tr>
-                    <th>Qty</th>
+                    <th>Quantity</th>
+                    <th>Avg. Price</th>
+                    <th>Amount</th>
+                    <th>Purchase Qty</th>
                     <th>Avg. Price</th>
                     <th>Amount</th>
                     <th>Sales Qty</th>
@@ -60,15 +64,18 @@
                     <tr>
                         <td class="rpt-id">@i@{i++;} </td>
                         <td>@row.ItemName</td>
+                        <td class="rpt-number">@row.OpeningQuantity.ToRound()</td>
+                        <td class="rpt-number">@row.AverageOpeningPrice.ToRound(5)</td>
+                        <td class="rpt-number">@row.OpeningAmount.ToRound()</td>
                         <td class="rpt-number">@row.PurchaseQuantity.ToRound()</td>
-                        <td class="rpt-number">@row.AveragePurchasePrice.ToRound()</td>
+                        <td class="rpt-number">@row.AveragePurchasePrice.ToRound(5)</td>
                         <td class="rpt-number">@row.PurchaseAmount.ToRound()</td>
                         <td class="rpt-number">@row.SalesQuantity.ToRound()</td>
-                        <td class="rpt-number">@row.AverageSalesPrice.ToRound()</td>
+                        <td class="rpt-number">@row.AverageSalesPrice.ToRound(5)</td>
                         <td class="rpt-number">@row.SalesAmount.ToRound()</td>
                         <td class="rpt-number">@row.RemainigQuantity.ToRound()</td>
                         <td class="rpt-number">@row.BalanceAmount.ToRound()</td>
-                        <td class="rpt-number">@row.AverageProfit.ToRound()</td>
+                        <td title="@row.AveragePrice.ToRound(5)" class="rpt-number">@row.AverageProfit.ToRound(5)</td>
                         <td class="rpt-number">@row.TotalProfit.ToRound()</td>
                     </tr>
                 }
@@ -76,6 +83,9 @@
             <tfoot>
                 <tr>
                     <th colspan="2" class="rpt-number">Total </th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.OpeningQuantity).ToRound()</th>
+                    <th class="rpt-number"></th>
+                    <th class="rpt-number">@Model.Items.Sum(row => row.OpeningAmount).ToRound()</th>
                     <th class="rpt-number">@Model.Items.Sum(row => row.PurchaseQuantity).ToRound()</th>
                     <th class="rpt-number"></th>
                     <th class="rpt-number">@Model.Items.Sum(row => row.PurchaseAmount).ToRound()</th>

@@ -22,7 +22,7 @@
         public Int64? Id { get { return Fields.Id[this]; } set { Fields.Id[this] = value; } }
         public partial class RowFields { public Int64Field Id; }
 
-        [DisplayName("Name"), Size(100), NotNull, QuickSearch]
+        [DisplayName("Name"), Size(100), NotNull, QuickSearch, Unique]
         public String Name { get { return Fields.Name[this]; } set { Fields.Name[this] = value; } }
         public partial class RowFields { public StringField Name; }
 
